@@ -25,3 +25,20 @@ Library for string operations in EO programming language
     Checks if the string is contains only uppercase letters(may include other symbols)
   - `is-whitespace(s: string) -> boolean`  
     Checks if the string is contains only whitespace characters(such as ` `, `\t`, etc.)
+- ### Search functions
+  - `count(string: string, substring: string) -> int`  
+    Returns the number of occurences of `substring` in `string`
+  - `find-all(string: string, substring: string) -> List[int]`  
+    Searches for occurences of `substring` in `string`, and returns the list of indexes of the first symbol of these occurences
+  - `find-first(string: string, substring: string) -> int`  
+    Searches for the first occurence of `substring` in `string`, and returns the index of the first symbol of that occurence, -1 if none were found
+  - `find-last(string: string, substring: string) -> int`  
+    Searches for the last occurence of `substring` in `string`, and returns the index of the first symbol of that occurence, -1 if none were found
+  - `replace-all(string: string, substring1: string, substring2: string) -> void`  
+    Searches for all occurences of `substring1` in `string`, and replaces them with `substring2`
+  - `replace-first(string: string, substring1: string, substring2: string) -> void`  
+    Searches for the first occurence of `substring1` in `string`, and replaces it with `substring2`
+  - `replace-last(string: string, substring1: string, substring2: string) -> void`  
+    Searches for the last occurence of `substring1` in `string`, and replaces it with `substring2`
+    
+  
