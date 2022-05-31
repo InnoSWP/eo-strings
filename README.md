@@ -82,7 +82,9 @@ Library for string operations in EO programming language
   - `starts-with(string: string, prefix: string) -> boolean`  
     Returns `True` if `prefix` is a prefix of `string`, `False` otherwise
   - `to-lowercase(string: string) -> string`  
-    Converts all uppercase letters to the lowercase versions
+    Converts all uppercase letters to the lowercase variants, and returns the result
+  - `to-uppercase(string: string) -> string`  
+    Converts all lowercase letters to the uppercase variants, and returns the result
   - `trim-left(string: string) -> string`  
     Removes all whitespace characters from the beginning of `string`, and returns the result
   - `trim-right(string: string) -> string`  
