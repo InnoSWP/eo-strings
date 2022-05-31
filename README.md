@@ -53,3 +53,37 @@ Library for string operations in EO programming language
     Repeats the `string` `x` times and returns the resulting string
   - `split(string: string, separator: string) -> List[string]`  
     Splits the `string` into a list of strings, using `separator` as a delimiter string. Returns the resulting list
+  - `substring(string: string, start: int, end: int) -> string`  
+    Returns the substring of `string` that starts at `start` and ends at `end` (`end`-th character is not included into the substring)
+- ### Formatting operations
+  - `fill-left(string: string, filler: string, x: int) -> string`  
+    Inserts `filler` in the beginning of the `string` untill the length of the string is greater or equal to `x`. If the string is longer than `x` characters and at least one insertion operation happened, the string is truncated from the left such that its length is `x`. The resulting string is then returned
+  - `fill-right(string: string, filler: string, x: int) -> string`  
+    Inserts `filler` at the end of the `string` untill the length of the string is greater or equal to `x`. If the string is longer than `x` characters and at least one insertion operation happened, the string is truncated from the right such that its length is `x`. The resulting string is then returned
+  - `fill-zero-left(string: string, x: int) -> string`  
+    Inserts zeroes in the beginning of the `string` untill the length of the string is greater or equal to `x`. The resulting string is then returned
+  - `fill-zero-right(string: string, x: int) -> string`  
+    Inserts zeroes at the end of the `string` untill the length of the string is greater or equal to `x`. The resulting string is then returned
+  - `format(string: string, arguments: List[string]) -> string`  
+    Similar to `printf` function from C, but the only specifier is `s`. Returns the formatted string  
+    `string` may contain format flags. The format tags prototype is `%[[[filler]flag]width]s`
+    #### Flags
+    - `-` Left align the string within the given field
+    - `+` Right align the string within the given field(default) 
+    - `^` Center align the string within the given field
+    - `~` Justify the string within the given field
+    #### Filler
+    The character with which the string will be padded, ` `(space) by default
+    #### Width
+    Integer that indicates the designated field width
+- ### Miscellanious
+  - `ends-with(string: string, suffix: string) -> boolean`  
+    Returns `True` if `suffix` is a suffix of `string`, `False` otherwise
+  - `starts-with(string: string, prefix: string) -> boolean`  
+    Returns `True` if `prefix` is a prefix of `string`, `False` otherwise
+  - `to-lowercase(string: string) -> string`  
+    Converts all uppercase letters to the lowercase versions
+  - `trim-left(string: string) -> string`  
+    Removes all whitespace characters from the beginning of `string`, and returns the result
+  - `trim-right(string: string) -> string`  
+    Removes all whitespace characters from the end of `string`, and returns the result
