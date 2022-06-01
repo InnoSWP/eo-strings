@@ -13,7 +13,7 @@ Library for string operations in EO programming language
 - ### Validation functions
   - `is-alphabetical(s: string) -> boolean`  
     Checks if the string consists only of alphabetic characters(`[A-Za-z]+`) and there is at least one character in the string
-  - `is-empty(s: string) -> boolean`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `is-empty(s: string) -> boolean`  
     Checks if the string is empty
   - `is-hexadecimal(s: string) -> boolean`  
     Checks if the string is a valid hexadecimal number(hexadecimal numbers may start with `0x`)
@@ -64,7 +64,7 @@ Library for string operations in EO programming language
     Inserts zeroes in the beginning of the `string` untill the length of the string is greater or equal to `x`. The resulting string is then returned
   - `fill-zero-right(string: string, x: int) -> string`  
     Inserts zeroes at the end of the `string` untill the length of the string is greater or equal to `x`. The resulting string is then returned
-  - `format(string: string, arguments: List[string]) -> string`  
+  - ![Java-EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/java-eo.svg)`format(string: string, arguments: List[string]) -> string`  
     Similar to `printf` function from C, but the only specifier is `s`. Returns the formatted string  
     `string` may contain format flags. The format tags prototype is `%[[[filler]flag]width]s`
     #### Flags
