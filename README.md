@@ -28,7 +28,7 @@ Library for string operations in EO programming language
   - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `substring(string: string, start: int, end: int) -> string`  
     Returns the substring of `string` that starts at `start` and ends at `end` (`end`-th character is not included into the substring)
 - ### Formatting operations
-  - `format(string: string, arguments: List[string]) -> string`  
+  -  ![Java-EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/java-eo.svg) `format(string: string, arguments: List[string]) -> string`  
     Similar to `printf` function from C, but the only specifier is `s`. Returns the formatted string  
     `string` may contain format flags. The format tags prototype is `%[[[filler]flag]width]s`
     #### Flags
