@@ -7,15 +7,15 @@ Library for string operations in EO programming language
   - `compare(string1: string, string2: string) -> int`  
     Compares `string1` and `string2` lexigrophically and returns `1` if `string1` is greater than `string2`, `0` if they are equal, and `-1` if `string1` is lesser than `string2`.
 - ### Validation functions
-  - `is-alphabetical(s: string) -> boolean`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `is-alphabetical(s: string) -> boolean`  
     Checks if the string consists only of alphabetic characters(`[A-Za-z]+`) and there is at least one character in the string
-  - `is-hexadecimal(s: string) -> boolean`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `is-hexadecimal(s: string) -> boolean`  
     Checks if the string is a valid hexadecimal number(hexadecimal numbers may start with `0x`)
-  - `is-int(s: string) -> boolean`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `is-int(s: string) -> boolean`  
     Checks if the string is a valid decimal integer
-  - `is-lowercase(s: string) -> boolean`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg)b `is-lowercase(s: string) -> boolean`  
     Checks if the string contains only lowercase letters(may include other symbols) and there is at least one character in the string
-  - `is-uppercase(s: string) -> boolean`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `is-uppercase(s: string) -> boolean`  
     Checks if the string is contains only uppercase letters(may include other symbols) and there is at least one character in the string
 - ### Search functions
   - `find-first(string: string, substring: string) -> int`  
