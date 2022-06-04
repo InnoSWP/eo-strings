@@ -41,7 +41,7 @@ Library for string operations in EO programming language
     #### Width
     Integer that indicates the designated field width
 - ### Miscellanious
-  - `to-lowercase(string: string) -> string`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `to-lowercase(string: string) -> string`  
     Converts all uppercase letters to the lowercase variants, and returns the result
-  - `to-uppercase(string: string) -> string`  
+  - ![EO](https://github.com/timolai-andrievich/eo-strings/blob/marking-in-progress/readme-assets/eo.svg) `to-uppercase(string: string) -> string`  
     Converts all lowercase letters to the uppercase variants, and returns the result
