@@ -1,0 +1,51 @@
+\documentclass[11pt,nonacm,natbib=false]{acmart}
+\settopmatter{printfolios=false,printccs=false,printacmref=false}
+\usepackage[utf8]{inputenc}
+\usepackage{paralist}
+\usepackage{ffcode}
+\usepackage{authblk}
+
+\title{Methods Necessary for String Classes in Object-Oriented Programming Languages}
+\author{
+Timolai Andrievich, 
+ Aksinya Kochunova, 
+ Egor Zavrazhnov, \\
+ Kseniya Sicheva, 
+ Anel Salkenova, 
+ Irina Schetinina 
+}
+
+\date{7 June 2022}
+
+\affil{Innopolis University}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In programming, a string is a primitive type designed to provide an interface for an ordered set of characters. However, standard library implementations of this interface vary in different languages. Thus, it is clear that the programming community has not decided on the optimal implementation of a string class. Therefore, this paper aims to determine a minimalistic set of string functions sufficient for a string class.
+
+\section{Set Building}
+\subsection{Necessary and Sufficient Functions}
+The memory tape of the Turing machine can be represented as three strings: parts of the memory tape right and left from the pointer and the memory cell with the pointer. Three operations are necessary for a Turing machine: move the head to the left, move the head to the right, and write a symbol to the cell. Therefore, the following methods are necessary:
+\begin{inparaenum}
+    \item concatenate---concatenate two strings
+    \item substring---returns the substring of requested length, starting at a given position as a string
+    \item length---returns the length of the string
+\end{inparaenum}
+It is easy to see that these methods are sufficient to implement Turing machine commands. Therefore, all computable algorithms, including string-related algorithms, can be described through strings. Because standard libraries include regular expressions, function regex---split string into groups according to regular expression pattern.
+\subsection{Populating the Set}
+However, such an approach is not practical, and other methods need to be  included. For this purpose, the following algorithm for set construction is proposed:
+\begin{enumerate}
+    \item Functions char-at, regex, and concatenate are added to the set
+    \item The function that is 
+        \begin{inparaenum}
+            \item Can not be implemented in three or fewer instructions using functions already in set
+            \item Can be implemented in the least amount of instructions among all remaining functions
+        \end{inparaenum}
+        is added to the set
+    \item The second step is repeated until no fitting functions remain
+    \item Then, the set is hedged by deleting functions that do not fit requirements outlined in step two
+\end{enumerate}
+\end{document}
