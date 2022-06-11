@@ -1,3 +1,5 @@
++package strings
+
 [a b] > compare
   if. > @
     (a.eq b)
