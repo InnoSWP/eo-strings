@@ -1,0 +1,10 @@
++package strings
+
+[a b] > compare
+  if. > @
+    (a.eq b)
+    0
+    if.
+      (a.as-bytes.as-int).less (b.as-bytes.as-int)
+      -1
+      1
