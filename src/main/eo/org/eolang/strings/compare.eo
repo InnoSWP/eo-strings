@@ -1,5 +1,3 @@
-+package sandbox
-
 [a b] > compare
   if. > @
     (a.eq b)
