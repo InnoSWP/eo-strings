@@ -1,0 +1,14 @@
++package strings
+
+[x, y] > contains
+  memory > sub
+  seq > @
+    while.
+      x.less y
+      [i]
+        seq > @
+          sub.concatenate
+            ^.as-bytes.part x
+          x.write (x.add 1)
+    TRUE
+  sub > @
