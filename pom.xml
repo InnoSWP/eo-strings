@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-The MIT License (MIT)
+The MIT License
 
-Copyright (c) 2016-2022 Yegor Bugayenko
+Copyright (c) 2022 timolai-andrievich
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -30,21 +30,27 @@ SOFTWARE.
     <version>0.57.2</version>
   </parent>
   <groupId>org.eolang</groupId>
-  <artifactId>eo-parent</artifactId>
+  <artifactId>eo-strings</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <name>eo-strings</name>
+  <properties>
+    <eolang.version>0.23.10</eolang.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   <description>String library for EO programming language</description>
-  <url>https://github.com/timolai-andrievich/eo-strings</url>
+  <url>https://github.com/InnoSWP/eo-strings</url>
   <inceptionYear>2022</inceptionYear>
   <organization>
     <name>EO</name>
-    <url>https://github.com/objectionary/eo</url>
+    <url>https://github.com/InnoSWP/eo-strings</url>
   </organization>
   <licenses>
     <license>
       <name>MIT</name>
       <url>https://www.eolang.org/LICENSE.txt</url>
+      <distribution>site</distribution>
     </license>
   </licenses>
   <developers>
@@ -100,85 +106,70 @@ SOFTWARE.
   </developers>
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/timolai-andrievich/eo-strings/issues</url>
+    <url>https://github.com/InnoSWP/eo-strings/issues</url>
   </issueManagement>
   <distributionManagement>
     <site>
       <id>github-pages</id>
-      <url>https://github.com/objectionary/eo</url>
+      <url>https://github.com/InnoSWP/eo-strings</url>
     </site>
   </distributionManagement>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.cactoos</groupId>
-        <artifactId>cactoos</artifactId>
-        <version>0.50</version>
-      </dependency>
-      <dependency>
-        <groupId>com.jcabi.incubator</groupId>
-        <artifactId>xembly</artifactId>
-        <version>0.25.0</version>
-      </dependency>
-      <dependency>
-        <groupId>com.yegor256</groupId>
-        <artifactId>xsline</artifactId>
-        <version>0.4.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-params</artifactId>
-        <version>5.6.2</version>
-      </dependency>
-      <dependency>
-        <groupId>org.yaml</groupId>
-        <artifactId>snakeyaml</artifactId>
-        <version>1.29</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.eolang</groupId>
+      <artifactId>eo-runtime</artifactId>
+      <version>${eolang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.6.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.6.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.antlr</groupId>
-          <artifactId>antlr4-maven-plugin</artifactId>
-          <configuration>
-            <treatWarningsAsErrors>true</treatWarningsAsErrors>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>com.jcabi</groupId>
-          <artifactId>jcabi-maven-plugin</artifactId>
-          <dependencies>
-            <dependency>
-              <groupId>javax.xml.bind</groupId>
-              <artifactId>jaxb-api</artifactId>
-              <version>2.3.1</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <groupId>com.github.github</groupId>
-          <artifactId>site-maven-plugin</artifactId>
-          <configuration>
-            <path>${project.artifactId}</path>
-          </configuration>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <configuration>
-            <systemProperties>
-              <basedir>${project.basedir}</basedir>
-            </systemProperties>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.eolang</groupId>
+        <artifactId>eo-maven-plugin</artifactId>
+        <version>${eolang.version}</version>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <goals>
+              <goal>register</goal>
+              <goal>assemble</goal>
+              <goal>transpile</goal>
+              <goal>unplace</goal>
+              <goal>unspile</goal>
+              <goal>copy</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-compile</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>register</goal>
+              <goal>assemble</goal>
+              <goal>transpile</goal>
+            </goals>
+            <configuration>
+              <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
+              <targetDir>${project.build.directory}/eo-test</targetDir>
+              <addSourcesRoot>false</addSourcesRoot>
+              <addTestSourcesRoot>true</addTestSourcesRoot>
+              <generatedDir>${project.build.directory}/generated-test-sources</generatedDir>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
   <profiles>
     <profile>
@@ -190,8 +181,7 @@ SOFTWARE.
             <artifactId>qulice-maven-plugin</artifactId>
             <configuration>
               <excludes combine.children="append">
-                <exclude>checkstyle:/src/site/resources/.*</exclude>
-                <exclude>duplicatefinder:.*</exclude>
+                <exclude>pmd:.*</exclude>
               </excludes>
             </configuration>
           </plugin>
