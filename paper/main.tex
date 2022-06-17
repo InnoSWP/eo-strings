@@ -67,7 +67,18 @@ After executing the algorithm, following functions were selected:
     \item to-float---converts string to float
     \item to-int---converts string to integer
 \end{inparaenum}
-   
-The team analyzed the libraries of several languages: Ruby, C++, Java, and Python. The data was collected from GitHub with an advanced search among all the code. The result was a list of the most popular functions for each language involved. Some of the most popular functions have already been implemented, as well as functions related to regular expressions. In C++, the selected functions cover 76\% of the uses of functions with strings in general. In Python this number is 44\%, Ruby - 33\%, Java - 38\%. The small percentage in the last three languages can be explained by a large number of redundant functions in that language.
 
+\subsection{StringBuilder implementation}
+\begin{inparaenum}
+After discussing the details of the implementation of the functions, we pointed out that the focus was not on the efficiency of the functions, but purely on their availability and usability. Therefore it was decided at this stage of development to remove the implementation of the StringBuilder class from the general task list and to implement functions without efficient development. In the future, it may be possible to refine these functions with the addition of effective use by implementing the StringBuilder.
+\end{inparaenum}
+   
+\subsection{GitHub analysis}
+\begin{inparaenum}
+The team analyzed the libraries of several languages: Ruby, C++, Java, and Python. The data was collected from GitHub with an advanced search among all the code. The result was a list of the most popular functions for each language involved. Some of the most popular functions have already been implemented, as well as functions related to regular expressions. In C++, the selected functions cover 76\% of the uses of functions with strings in general. In Python this number is 44\%, Ruby - 33\%, Java - 38\%. The small percentage in the last three languages can be explained by a large number of redundant functions in that language.
+\end{inparaenum}
+
+
+\section{Conclusion}
+Therefore, after analyzing the selection of functions, we chose several: concatenate, substring, compare, capitalize, format, hash, is-alphabetic, is-lowercase, is-uppercase, to-float, swap-case, and to-int. In selecting the functions, we were guided by features such as sufficient quantity for the Turing machine, the algorithm in the "Populating the Set" section, and statistics on GitHub. 
 \end{document}
