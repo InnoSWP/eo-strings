@@ -21,7 +21,7 @@
 # SOFTWARE.
 #
 # We need to fix code below due to several compilation errors
-# [x, y] > contains
+# [x, y] > substring
 #   memory > sub
 #   seq > @
 #     while.
