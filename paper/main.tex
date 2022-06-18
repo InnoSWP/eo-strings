@@ -68,6 +68,24 @@ After executing the algorithm, following functions were selected:
     \item to-int---converts string to integer
 \end{inparaenum}
 
+\subsection{Functions in other languages}
+A proper library is written with the experience of other languages in mind to avoid common mistakes. All the languages analyzed in this article have functions with different names but with the same result. It's called pizza language. Many libraries have a lot of functions that are rarely used. Either no one knows about them, or the result can be obtained in a more complicated way with a more popular function. This cannot be avoided in industrial and old languages, but the EO language has a strong academic foundation. An important task is to keep the purity and elegance of the language. 
+Every language has functions not added to the EO language library. There may be several reasons: they are present in the library of only one language, or they are redundant. 
+\begin{table}[]
+\begin{tabular}{ l | l | p{265pt}}
+Function name & Libraries          & Reasons of excluding                                                             \\
+capacity      & C++                & Presented only in one library, has limited functionality                         \\
+fill-left    & Ruby               & Presented only in one library, not so important right now                        \\
+fill-right    & Ruby               & Presented only in one library, not so important right now                        \\
+is-title      & Python             & Presented only in one library, can be implemented in three or fewer instructions \\
+repeat        & Java, Python       & Can be implemented in three or fewer instructions, 2 libraries                   \\
+patrition     & Python, Ruby       & 2 libraries, not so important right now,                                         \\
+shrink-to-fit & C++                & Presented only in one library, not so important right now                        \\
+strip         & Java, Python, Ruby & Can be implemented in three or fewer instructions, not so important right now    \\
+starts-with   & Java, Python, Ruby & Can be implemented in three or fewer instructions, not so important right now   
+\end{tabular}
+\end{table}
+
 \subsection{StringBuilder implementation}
 \begin{inparaenum}
 After discussing the details of the implementation of the functions, we pointed out that the focus was not on the efficiency of the functions, but purely on their availability and usability. Therefore it was decided at this stage of development to remove the implementation of the StringBuilder class from the general task list and to implement functions without efficient development. In the future, it may be possible to refine these functions with the addition of effective use by implementing the StringBuilder.
