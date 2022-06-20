@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 timolai-andrievich
+# Copyright (c) 2022 egor-zavrahnov
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -29,3 +29,63 @@
   assert-that > @
     compare "s" "s"
     $.equal-to 0
+
+[] > compare-two-test
+  assert-that > @
+    compare "" ""
+    $.equal-to 0
+
+[] > compare-three-test
+  assert-that > @
+    compare " " " "
+    $.equal-to 0
+
+[] > compare-four-test
+  assert-that > @
+    compare "   " " "
+    $.equal-to 1
+
+[] > compare-five-test
+  assert-that > @
+    compare " " "    "
+    $.equal-to -1
+
+[] > compare-six-test
+  assert-that > @
+    compare "  " "   "
+    $.equal-to -1
+
+[] > compare-seven-test
+  assert-that > @
+    compare "1" "1"
+    $.equal-to 0
+
+[] > compare-eight-test
+  assert-that > @
+    compare "1" "2"
+    $.equal-to -1
+
+[] > compare-nine-test
+  assert-that > @
+    compare "2" "1"
+    $.equal-to 1
+
+[] > compare-ten-test
+  assert-that > @
+    compare "123" "123" 0
+    $.equal-to -1
+
+[] > compare-eleven-test
+  assert-that > @
+    compare "123" "132" -1
+    $.equal-to -1
+
+[] > compare-twelth-test
+  assert-that > @
+    compare "132" "123" 1
+    $.equal-to -1
+
+[] > compare-thirteen-test
+  assert-that > @
+    compare "hello world" "hello world" 0
+    $.equal-to -1
