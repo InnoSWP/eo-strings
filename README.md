@@ -7,7 +7,7 @@ Library for string operations in EO programming language.
 The functions for the EO language are chosen on the basis of the fact that the function is present in the Python, C++ and Java libraries.  
 [**List of functions**](https://github.com/InnoSWP/eo-strings/blob/main/List.md)
 
-## How to Contribute
+## How to Contributeqwe
 
 Fork repository, make changes, send us a pull request.
 We will review your changes and apply them to the `master` branch shortly,
