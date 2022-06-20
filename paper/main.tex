@@ -32,41 +32,42 @@ In programming, a string is a primitive type designed to provide an interface fo
 \section{Set Building}
 \subsection{Necessary and Sufficient Functions}
 The memory tape of the Turing machine can be represented as three strings: parts of the memory tape right and left from the pointer and the memory cell with the pointer. Three operations are necessary for a Turing machine: move the head to the left, move the head to the right, and write a symbol to the cell. Therefore, the following methods are necessary:
-\begin{inparaenum}
-    \item concatenate---concatenate two strings
-    \item substring---returns the substring of requested length, starting at a given position as a string
-    \item length---returns the length of the string
-\end{inparaenum}
+\begin{enumerate}
+    \item \ff{concatenate}---concatenate two strings
+    \item \ff{slice}---returns the substring of requested length, starting at a given position as a string
+    \item \ff{length}---returns the length of the string
+\end{enumerate}
 It is easy to see that these methods are sufficient to implement Turing machine commands. Therefore, all computable algorithms, including string-related algorithms, can be described through strings. Because standard libraries include regular expressions, function regex---split string into groups according to regular expression pattern.
 \subsection{Populating the Set}
-However, such an approach is not practical, and other methods need to be  included. For this purpose, the following algorithm for set construction is proposed:
+However, such an approach is not practical, and other methods need to be  included. For this purpose, the following criteria for selection and algorithm for set construction are proposed:
+\subsubsection{Criteria}
 \begin{enumerate}
-    \item Functions char-at, regex, and concatenate are added to the set
-    \item The function that is 
-        \begin{inparaenum}
-            \item Can not be implemented in three or fewer instructions using functions already in set
-            \item Can be implemented in the least amount of instructions among all remaining functions
-        \end{inparaenum}
-        is added to the set
+    \item Can not be implemented in three or fewer instructions using functions already in set
+    \item Can be implemented in the least amount of instructions among all remaining functions
+\end{enumerate}
+\subsubsection{Algorithm}
+\begin{enumerate}
+    \item Functions \ff{slice}, \ff{regex}, and \ff{concatenate} are added to the set
+    \item The function that falls under all criteria in 2.2.1 is added to the set
     \item The second step is repeated until no fitting functions remain
     \item Then, the set is hedged by deleting functions that do not fit requirements outlined in step two
 \end{enumerate}
 \subsection{Analysis of the final selected functions}
 After executing the algorithm, following functions were selected:
-\begin{inparaenum}
-    \item concatenate---concatenates two strings
-    \item substring---returns substring specified by arguments
-    \item compare---compares two strings
-    \item capitalize---converts the first character to the uppercase, and all other to the lowercase
-    \item format---returns formatted string
-    \item hash---returns the hash of the string
-    \item is-alphabetic---checks if the string contains only letters
-    \item is-lowercase---checks if the string contains only lowercase letters
-    \item is-uppercase---checks if the string contains only uppercase letters
-    \item swap-case---converts all lowercase characters to uppercase, and vise versa
-    \item to-float---converts string to float
-    \item to-int---converts string to integer
-\end{inparaenum}
+\begin{enumerate}
+    \item \ff{concatenate}---concatenates two strings
+    \item \ff{slice}---returns substring specified by arguments
+    \item \ff{compare}---compares two strings
+    \item \ff{capitalize}---converts the first character to the uppercase, and all other to the lowercase
+    \item \ff{format}---returns formatted string
+    \item \ff{hash}---returns the hash of the string
+    \item \ff{is-alphabetic}---checks if the string contains only letters
+    \item \ff{is-lowercase}---checks if the string contains only lowercase letters
+    \item \ff{is-uppercase}---checks if the string contains only uppercase letters
+    \item \ff{swap-case}---converts all lowercase characters to uppercase, and vise versa
+    \item \ff{to-float}---converts string to float
+    \item \ff{to-int}---converts string to integer
+\end{enumerate}
 
 \subsection{Functions in other languages}
 Libraries in different languages have different specifics. The most complete are the Java and Python language libraries. Libraries contain almost all the functions collected in the common table of 4 libraries. They are missing only the most specific of all the assembled functions. Because of this, they may have redundant functions that have one result. C++ library is the most minimalistic. Perhaps this is due to its age, because the language appeared almost 10 years earlier than the others in the selection. It lacks some common functions, but has a few unusual ones, mostly memory-related. For example, capacity - this function for strings is not available in Java, Python or Ruby. Ruby has the most balanced library. It has many features but almost no repetitive features like Java. This is because both Python and C++ have influenced the language.
