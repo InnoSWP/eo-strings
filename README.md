@@ -1,6 +1,6 @@
 # eo-strings
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/InnoSWP/eo-strings/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/InnoSWP/eo-strings/blob/main/LICENSE.txt)
 [![GitHub Super-Linter](https://github.com/InnoSWP/eo-strings/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 Library for string operations in EO programming language.
