@@ -7,6 +7,10 @@
 \usepackage{calc}
 \usepackage{ifthen}
 \usepackage{tikz}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
 
 \title{Methods Necessary for String Classes in Object-Oriented Programming Languages}
 \author{
@@ -27,17 +31,42 @@ Timolai Andrievich,
 \maketitle
 
 \section{Introduction}
-In programming, a string is a primitive type designed to provide an interface for an ordered set of characters. However, standard library implementations of this interface vary in different languages. Thus, it is clear that the programming community has not decided on the optimal implementation of a string class. Therefore, this paper aims to determine a minimalistic set of string functions sufficient for a string class.
+In programming, a string is a primitive type designed to provide an interface for an ordered set of characters. However, standard library implementations of this interface vary in different languages. Thus, it is clear that the programming community has not decided on the optimal implementation of a string class. Therefore, this paper aims to determine a minimalistic set of string functions sufficient for a string class. As the goal of this paper is mostly scientific, the string builder class as well as other utility classes are out of scope of this project. 
 
 \section{Set Building}
 \subsection{Necessary and Sufficient Functions}
-The memory tape of the Turing machine can be represented as three strings: parts of the memory tape right and left from the pointer and the memory cell with the pointer. Three operations are necessary for a Turing machine: move the head to the left, move the head to the right, and write a symbol to the cell. Therefore, the following methods are necessary:
+One of the ways to select necessary and sufficient set of methods is to select methods that are sufficient and necessary to build a Turing machine. The Turing machine is the automaton with the highest computational capability, thus, any program that can be implemented can be implemented through selected methods. The memory tape of the Turing machine can be represented as three strings: parts of the memory tape right and left from the pointer and the memory cell with the pointer. Three operations are necessary for a Turing machine: \begin{inparaenum}
+ \item move the head to the left, 
+ \item move the head to the right, and 
+ \item write a symbol to the cell.
+ \end{inparaenum}
+ Therefore, assuming that assignment operations and user interactions are handled by other aspects of programming language, the following methods are necessary:
 \begin{enumerate}
     \item \ff{concatenate}---concatenate two strings
     \item \ff{slice}---returns the substring of requested length, starting at a given position as a string
     \item \ff{length}---returns the length of the string
 \end{enumerate}
-It is easy to see that these methods are sufficient to implement Turing machine commands. Therefore, all computable algorithms, including string-related algorithms, can be described through strings. Because standard libraries include regular expressions, function regex---split string into groups according to regular expression pattern.
+If \ff{left\_side} is part of the tape left to the head, \ff{right\_side} is part of the tape right to the head, \ff{cell} is the cell tape with the head on it.
+Turing machine operations can be implemented as follows: 
+\begin{enumerate}
+\item Move the head to the left: 
+\begin{ffcode}
+right_side := cell.concatenate(right_part);
+cell := left_side.substring(left_side.length() - 1, 1);
+left_size := left_side.substring(0, left_side.length() - 1);
+\end{ffcode}
+\item Move the head to the right: 
+\begin{ffcode}
+left := left_side.concatenate(cell);
+cell := right_side.substring(0, 1);
+right_side := right_side.substring(1, right_side.length() - 1);
+\end{ffcode}
+\item Write a symbol to the cell: 
+\begin{ffcode}
+cell := symbol;
+\end{ffcode}
+\end{enumerate}
+Therefore, all computable algorithms, including string-related algorithms, can be described through strings. Because standard libraries include regular expressions, function regex---split string into groups according to regular expression pattern should also be included into the starting set.
 \subsection{Populating the Set}
 However, such an approach is not practical, and other methods need to be  included. For this purpose, the following criteria for selection and algorithm for set construction are proposed:
 \subsubsection{Criteria}
@@ -69,10 +98,22 @@ After executing the algorithm, following functions were selected:
     \item \ff{to-int}---converts string to integer
 \end{enumerate}
 
-\subsection{Functions in other languages}
-Libraries in different languages have different specifics. The most complete are the Java and Python language libraries. Libraries contain almost all the functions collected in the common table of 4 libraries. They are missing only the most specific of all the assembled functions. Because of this, they may have redundant functions that have one result. C++ library is the most minimalistic. Perhaps this is due to its age, because the language appeared almost 10 years earlier than the others in the selection. It lacks some common functions, but has a few unusual ones, mostly memory-related. For example, capacity - this function for strings is not available in Java, Python or Ruby. Ruby has the most balanced library. It has many features but almost no repetitive features like Java. This is because both Python and C++ have influenced the language.
-The main information support is statistics collected from various libraries.  It can be used to calculate the importance of a function from the frequency of its use by other programmers. The choice is also based on the alogrithm from part 2.2. Every language has functions not added to the EO language library:
-\begin{table}[H]
+\subsection{Functions in Other Languages}
+The team analyzed the libraries of several languages: Ruby, C++, Java, and Python. 
+The data was collected from GitHub using advanced search among all the repositories. 
+The result was a list of the most popular functions for each language involved. 
+Some of the most popular functions have already been implemented, as well as functions related to regular expressions. 
+In C++, the selected functions cover 76\% of the uses of functions with strings in general. 
+In Python this number is 44\%, Ruby - 33\%, Java - 38\%. 
+The small percentage in the last three languages can be explained by a large number of redundant functions in that language. 
+The most complete string libraries are the Java and Python ones. The C++ library is the most minimalistic one. 
+This could be due to its age, as the language appeared at 1985, almost 10 years earlier than other three. It lacks some common functions, but has a few unapplicable to high-level languages, mostly memory-related. 
+For example, capacity - this function for strings is not available in Java, Python or Ruby. 
+Ruby has the most balanced library. 
+It has many features but almost no duplicate functions like Java.
+The collected daata can be used to calculate the importance of a function from the frequency of its use by other programmers. The choice is also based on the algorithm from section 2.2. Every language has unnecessary functions, as shown in \emph{\autoref{tab:excluded_functions}}
+
+\begin{table}
 \begin{tabular}{l | l | p{265pt}}
 Function name & Libraries          & Reasons of excluding                                                                                                                      \\
 capacity      & C++                & Presented only in one library, has limited functionality, used only in 0,02\% of general string functions usage                           \\
@@ -85,19 +126,9 @@ shrink-to-fit & C++                & Presented only in one library, has limited 
 strip         & Java, Python, Ruby & Can be implemented in three or fewer instructions, used only in 0,015\% of general string functions usage                                 \\
 starts-with   & Java, Python, Ruby & Can be implemented in three or fewer instructions, used only in 0,01\% of general string functions usage                                 
 \end{tabular}
+\caption{\label{tab:excluded_functions}Analysis of the sample of the functions not included in the set.}
 \end{table}
 
-\subsection{StringBuilder implementation}
-\begin{inparaenum}
-After discussing the details of the implementation of the functions, we pointed out that the focus was not on the efficiency of the functions, but purely on their availability and usability. Therefore it was decided at this stage of development to remove the implementation of the StringBuilder class from the general task list and to implement functions without efficient development. In the future, it may be possible to refine these functions with the addition of effective use by implementing the StringBuilder.
-\end{inparaenum}
-   
-\subsection{GitHub analysis}
-\begin{inparaenum}
-The team analyzed the libraries of several languages: Ruby, C++, Java, and Python. The data was collected from GitHub with an advanced search among all the code. The result was a list of the most popular functions for each language involved. Some of the most popular functions have already been implemented, as well as functions related to regular expressions. In C++, the selected functions cover 76\% of the uses of functions with strings in general. In Python this number is 44\%, Ruby - 33\%, Java - 38\%. The small percentage in the last three languages can be explained by a large number of redundant functions in that language.
-\end{inparaenum}
-
-
 \section{Conclusion}
-Therefore, after analyzing the selection of functions, we chose several: concatenate, substring, compare, capitalize, format, hash, is-alphabetic, is-lowercase, is-uppercase, to-float, swap-case, and to-int. In selecting the functions, we were guided by features such as sufficient quantity for the Turing machine, the algorithm in the "Populating the Set" section, and statistics on GitHub. 
+After analyzing the selection of functions, we chose several: concatenate, substring, compare, capitalize, format, hash, is-alphabetic, is-lowercase, is-uppercase, to-float, swap-case, and to-int. In selecting the functions, we were guided by features such as sufficient quantity for the Turing machine, the algorithm in the "Populating the Set" section, and statistics on GitHub. 
 \end{document}
