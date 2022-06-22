@@ -31,7 +31,7 @@ Timolai Andrievich,
 \maketitle
 
 \section{Introduction}
-In programming, a string is a primitive type designed to provide an interface for an ordered set of characters. However, standard library implementations of this interface vary in different languages. Thus, it is clear that the programming community has not decided on the optimal implementation of a string class. Therefore, this paper aims to determine a minimalistic set of string functions sufficient for a string class. As the goal of this paper is mostly scientific, the string builder class as well as other utility classes are out of scope of this project. 
+In programming, a string is a primitive type designed to provide an interface for an ordered set of characters. However, standard library implementations of this interface vary in different languages. Thus, it is clear that the programming community has not decided on the optimal implementation of a string class. Therefore, this paper aims to determine a minimalistic set of string functions sufficient for a string class.
 
 \section{Set Building}
 \subsection{Necessary and Sufficient Functions}
@@ -100,18 +100,16 @@ After executing the algorithm, following functions were selected:
 
 \subsection{Functions in Other Languages}
 The team analyzed the libraries of several languages: Ruby, C++, Java, and Python. 
-The data was collected from GitHub using advanced search among all the repositories. 
-The result was a list of the most popular functions for each language involved. 
-Some of the most popular functions have already been implemented, as well as functions related to regular expressions. 
+The data was collected from GitHub using advanced search among all the repositories and compiled into a list of the most popular functions for each language.
 In C++, the selected functions cover 76\% of the uses of functions with strings in general. 
 In Python this number is 44\%, Ruby - 33\%, Java - 38\%. 
 The small percentage in the last three languages can be explained by a large number of redundant functions in that language. 
 The most complete string libraries are the Java and Python ones. The C++ library is the most minimalistic one. 
-This could be due to its age, as the language appeared at 1985, almost 10 years earlier than other three. It lacks some common functions, but has a few unapplicable to high-level languages, mostly memory-related. 
+This could be due to the age of C++, as the language appeared at 1985, almost 10 years earlier than other three. It lacks some common functions, but has a few unapplicable to high-level languages, mostly memory-related. 
 For example, capacity - this function for strings is not available in Java, Python or Ruby. 
-Ruby has the most balanced library. 
-It has many features but almost no duplicate functions like Java.
-The collected daata can be used to calculate the importance of a function from the frequency of its use by other programmers. The choice is also based on the algorithm from section 2.2. Every language has unnecessary functions, as shown in \emph{\autoref{tab:excluded_functions}}
+Ruby has the most balanced library, with many features but almost no duplicate functions
+as in Java.
+The collected data can be used to estimate the importance of a function from the frequency of its use by other programmers. This estimate may help improve the ease of use of the set of functions selected in 2.2. The analysis of a few of the functions, not included in the set can be found in \emph{\autoref{tab:excluded_functions}}
 
 \begin{table}
 \begin{tabular}{l | l | p{265pt}}
@@ -130,5 +128,5 @@ starts-with   & Java, Python, Ruby & Can be implemented in three or fewer instru
 \end{table}
 
 \section{Conclusion}
-After analyzing the selection of functions, we chose several: concatenate, substring, compare, capitalize, format, hash, is-alphabetic, is-lowercase, is-uppercase, to-float, swap-case, and to-int. In selecting the functions, we were guided by features such as sufficient quantity for the Turing machine, the algorithm in the "Populating the Set" section, and statistics on GitHub. 
+After analyzing the selection of functions, several were selected: \ff{concatenate}, \ff{substring}, \ff{compare}, \ff{capitalize}, \ff{format}, \ff{hash}, \ff{is-alphabetic}, \ff{is-lowercase}, \ff{is-uppercase}, \ff{to-float}, \ff{swap-case}, and \ff{to-int}. While selecting the functions, we were guided by features such as sufficient quantity for the Turing machine, the algorithm in the "Populating the Set" section, and statistics on GitHub. 
 \end{document}
