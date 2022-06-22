@@ -1,14 +1,21 @@
 +package strings
 
 [a b] > concatenate
-   	memory 0 > x
-  	seq > @
-  		while.
-     		x.less (b > length)
-    		[i]
+    memory > z
+    seq > @
+  	while.
+     	    x.less (b > length)
+    	    [i]
         	seq > @
-          	b.write(a^.as-bytes.part x)
-					  x.write(x.add 1)
-     b > @
-	TRUE
-      
+          	    z.write([[b].as-bytes.part x].as-bytes)
+		    x.write(x.add 1)
+     seq > @
+         while.
+     	     u.less (a > length)
+    	     [i]
+        	 seq > @
+          	    y.write([[a].as-bytes.part x].as-bytes)
+		    u.write(u.add 1)
+	z.[y] > concat
+	   TRUE > @
+      [z] > as-string
