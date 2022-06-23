@@ -72,20 +72,20 @@
 
 [] > compare-ten-test
   assert-that > @
-    compare "123" "123" 0
-    $.equal-to -1
+    compare "123" "123"
+    $.equal-to 0
 
 [] > compare-eleven-test
   assert-that > @
-    compare "123" "132" -1
+    compare "123" "132"
     $.equal-to -1
 
 [] > compare-twelth-test
   assert-that > @
-    compare "132" "123" 1
-    $.equal-to -1
+    compare "132" "123"
+    $.equal-to 1
 
 [] > compare-thirteen-test
   assert-that > @
-    compare "hello world" "hello world" 0
-    $.equal-to -1
+    compare "hello world" "hello world"
+    $.equal-to 0
