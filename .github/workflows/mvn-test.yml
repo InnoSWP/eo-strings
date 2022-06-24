@@ -1,0 +1,25 @@
+name: mvn-test
+on:
+  push:
+    paths-ignore: ['paper/**']
+  pull_request:
+jobs:
+  test:
+    name: Test
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        java: [11]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-jdk-${{ matrix.java }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
+      - run: mvn clean test clean --errors
