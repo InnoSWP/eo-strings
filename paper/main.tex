@@ -52,21 +52,21 @@ Turing machine operations can be implemented as follows:
 \item Move the head to the left: 
 \begin{ffcode}
 right_side := cell.concatenate(right_part);
-cell := left_side.substring(left_side.length() - 1, 1);
-left_size := left_side.substring(0, left_side.length() - 1);
+cell := left_side.slice(left_side.length() - 1, 1);
+left_size := left_side.slice(0, left_side.length() - 1);
 \end{ffcode}
 \item Move the head to the right: 
 \begin{ffcode}
 left := left_side.concatenate(cell);
-cell := right_side.substring(0, 1);
-right_side := right_side.substring(1, right_side.length() - 1);
+cell := right_side.slice(0, 1);
+right_side := right_side.slice(1, right_side.length() - 1);
 \end{ffcode}
 \item Write a symbol to the cell: 
 \begin{ffcode}
 cell := symbol;
 \end{ffcode}
 \end{enumerate}
-Therefore, all computable algorithms, including string-related algorithms, can be described through strings. Because standard libraries include regular expressions, function regex---split string into groups according to regular expression pattern should also be included into the starting set.
+Therefore, all computable algorithms, including string-related algorithms, can be described through strings using these three methods.
 \subsection{Populating the Set}
 However, such an approach is not practical, and other methods need to be  included. For this purpose, the following criteria for selection and algorithm for set construction are proposed:
 \subsubsection{Criteria}
@@ -76,7 +76,7 @@ However, such an approach is not practical, and other methods need to be  includ
 \end{enumerate}
 \subsubsection{Algorithm}
 \begin{enumerate}
-    \item Functions \ff{slice}, \ff{regex}, and \ff{concatenate} are added to the set
+    \item Functions \ff{slice}, \ff{length}, and \ff{concatenate} are added to the set
     \item The function that falls under all criteria in 2.2.1 is added to the set
     \item The second step is repeated until no fitting functions remain
     \item Then, the set is hedged by deleting functions that do not fit requirements outlined in step two
@@ -85,21 +85,21 @@ However, such an approach is not practical, and other methods need to be  includ
 After executing the algorithm, following functions were selected:
 \begin{enumerate}
     \item \ff{concatenate}---concatenates two strings
+    \item \ff{length}---returns the length of the string
     \item \ff{slice}---returns substring specified by arguments
     \item \ff{compare}---compares two strings
     \item \ff{capitalize}---converts the first character to the uppercase, and all other to the lowercase
-    \item \ff{format}---returns formatted string
     \item \ff{hash}---returns the hash of the string
     \item \ff{is-alphabetic}---checks if the string contains only letters
     \item \ff{is-lowercase}---checks if the string contains only lowercase letters
     \item \ff{is-uppercase}---checks if the string contains only uppercase letters
     \item \ff{swap-case}---converts all lowercase characters to uppercase, and vise versa
-    \item \ff{to-float}---converts string to float
-    \item \ff{to-int}---converts string to integer
+    \item \ff{sscanf}---scans the string according to format strings and returns resulting values
+    \item \ff{sprintf}---given the format string and a set of values, returns formetted output
 \end{enumerate}
 
 \subsection{Functions in Other Languages}
-The team analyzed the libraries of several languages: Ruby, C++, Java, and Python. 
+The team analyzed the libraries of several languages: Ruby, C++, Java, and Python. AS the purpose of this paper is to create a set of functions for the standard library, none of the third-party libraries for string operations, such as Boost for C++ were not analyzed.
 The data was collected from GitHub using advanced search among all the repositories and compiled into a list of the most popular functions for each language.
 In C++, the selected functions cover 76\% of the uses of functions with strings in general. 
 In Python this number is 44\%, Ruby - 33\%, Java - 38\%. 
@@ -128,5 +128,5 @@ starts-with   & Java, Python, Ruby & Can be implemented in three or fewer instru
 \end{table}
 
 \section{Conclusion}
-After analyzing the selection of functions, several were selected: \ff{concatenate}, \ff{substring}, \ff{compare}, \ff{capitalize}, \ff{format}, \ff{hash}, \ff{is-alphabetic}, \ff{is-lowercase}, \ff{is-uppercase}, \ff{to-float}, \ff{swap-case}, and \ff{to-int}. While selecting the functions, we were guided by features such as sufficient quantity for the Turing machine, the algorithm in the "Populating the Set" section, and statistics on GitHub. 
+After analyzing the selection of functions, several were selected: \ff{concatenate}, \ff{slice}, \ff{compare}, \ff{capitalize}, \ff{format}, \ff{hash}, \ff{is-alphabetic}, \ff{is-lowercase}, \ff{is-uppercase}, \ff{to-float}, \ff{swap-case}, and \ff{to-int}. While selecting the functions, we were guided by features such as sufficient quantity for the Turing machine, the algorithm in the "Populating the Set" section, and statistics on GitHub. 
 \end{document}
