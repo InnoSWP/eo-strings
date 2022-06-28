@@ -30,4 +30,4 @@
  * @checkstyle PackageDeclarationCheck (5 lines)
  * @checkstyle PackageCase (5 lines)
  */
-package EOorg.EOeolang.EOtxt;
+package EOorg.EOeolang.EOstrings;
