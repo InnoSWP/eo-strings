@@ -21,21 +21,8 @@
 # SOFTWARE.
 
 +package org.eolang.txt
-+alias org.eolang.hamcrest.assert-that
-+alias org.eolang.txt.is-uppercase
-+junit
++home https://github.com/objectionary/eo-strings
++version 0.0.0
++rt jvm org.eolang:eo-strings:0.0.0
 
-[] > is-uppercase-test
-  assert-that > @
-    is-uppercase "UPPERCASE"
-    $.equal-to TRUE
-
-[] > is-uppercase-test-second
-  assert-that > @
-    is-uppercase "UPPERCASE AND D1G1TS"
-    $.equal-to TRUE
-
-[] > is-uppercase-test-third
-  assert-that > @
-    is-uppercase "lowercase AND UPPERCASE"
-    $.equal-to FALSE
+[s] > is-lowercase /bool
