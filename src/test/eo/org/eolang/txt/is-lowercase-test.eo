@@ -22,20 +22,20 @@
 
 +package org.eolang.txt
 +alias org.eolang.hamcrest.assert-that
-+alias org.eolang.txt.is-uppercase
++alias org.eolang.txt.is-lowercase
 +junit
 
-[] > is-uppercase-test
+[] > is-lowercase-test
   assert-that > @
-    is-uppercase "UPPERCASE"
+    is-lowercase "lowercase"
     $.equal-to TRUE
 
-[] > is-uppercase-test-second
+[] > is-lowercase-test-second
   assert-that > @
-    is-uppercase "UPPERCASE AND D1G1TS"
+    is-lowercase "lowercase and d1g1ts"
     $.equal-to TRUE
 
-[] > is-uppercase-test-third
+[] > is-lowercase-test-third
   assert-that > @
-    is-uppercase "lowercase AND UPPERCASE"
+    is-lowercase "lowercase and UPPERCASE"
     $.equal-to FALSE
