@@ -24,27 +24,16 @@
 
 package EOorg.EOeolang.EOtxt;
 
-import java.io.PrintStream;
 import org.eolang.AtComposite;
 import org.eolang.AtFree;
 import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
 import org.eolang.Phi;
-import org.eolang.XmirObject;
-
-/**
- * Stdout.
- *
- * @since 0.1
- */
 
 public class EOto_lowercase extends PhDefault {
 
-    /**
-     * Default out.
-     */
-    private static final String toLowercase(String s){
+    private static final String toLowercase(String s) {
         return s.toLowerCase();
     }
 

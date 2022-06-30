@@ -31,22 +31,17 @@ import org.eolang.Param;
 import org.eolang.PhDefault;
 import org.eolang.Phi;
 
-public class EOis_uppercase extends PhDefault {
+public class EOcapitalize extends PhDefault {
 
-    private static final Boolean isUppercase(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            if (Character.isLowerCase(s.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
+    private static final String capitalize(String s) {
+        return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
 
-    public EOis_uppercase(final Phi sigma) {
+    public EOcapitalize(final Phi sigma) {
         super(sigma);
         this.add("s", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            return new Data.ToPhi(EOis_uppercase.isUppercase(
+            return new Data.ToPhi(EOcapitalize.capitalize(
                 new Param(rho, "s").strong(String.class)));
         }));
     }
