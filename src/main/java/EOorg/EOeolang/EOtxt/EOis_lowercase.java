@@ -24,27 +24,16 @@
 
 package EOorg.EOeolang.EOtxt;
 
-import java.io.PrintStream;
 import org.eolang.AtComposite;
 import org.eolang.AtFree;
 import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
 import org.eolang.Phi;
-import org.eolang.XmirObject;
-
-/**
- * Stdout.
- *
- * @since 0.1
- */
 
 public class EOis_lowercase extends PhDefault {
 
-    /**
-     * Default out.
-     */
-    private static final Boolean isLowercase(String s){
+    private static final Boolean isLowercase(String s) {
         for (int i = 0; i < s.length(); i++) {
             if (Character.isUpperCase(s.charAt(i))) {
                 return false;
