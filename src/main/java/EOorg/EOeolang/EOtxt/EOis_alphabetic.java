@@ -32,22 +32,17 @@ import org.eolang.PhDefault;
 import org.eolang.Phi;
 
 public class EOis_alphabetic extends PhDefault {
-
-    private static final Boolean isAlphabetic(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            if (!Character.isAlphabetic(s.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public EOis_alphabetic(final Phi sigma) {
         super(sigma);
         this.add("s", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            return new Data.ToPhi(EOis_alphabetic.isAlphabetic(
-                new Param(rho, "s").strong(String.class)));
+            final String s = new Param(rho, "s").strong(String.class);
+            for (int i = 0; i < s.length(); i++) {
+                if (!Character.isAlphabetic(s.charAt(i))) {
+                    return new Data.ToPhi(false);
+                }
+            }
+            return new Data.ToPhi(true);
         }));
     }
 }

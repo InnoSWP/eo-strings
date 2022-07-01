@@ -33,29 +33,25 @@ import org.eolang.Phi;
 
 public class EOswap_case extends PhDefault {
 
-    private static final String swapCase(String s) {
-        String res = "";
-        for (int i = 0; i < s.length(); i++) {
-            final char c = s.charAt(i);
-            if (Character.isUpperCase(c)) {
-                res += Character.toLowerCase(c);
-            }
-            else if (Character.isLowerCase(c)) {
-                res += Character.toUpperCase(c);
-            }
-            else {
-                res += c;
-            }
-        }
-        return res;
-    }
-
     public EOswap_case(final Phi sigma) {
         super(sigma);
         this.add("s", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            return new Data.ToPhi(EOswap_case.swapCase(
-                new Param(rho, "s").strong(String.class)));
+            final String s = new Param(rho, "s").strong(String.class);
+            String res = "";
+            for (int i = 0; i < s.length(); i++) {
+                final char c = s.charAt(i);
+                if (Character.isUpperCase(c)) {
+                    res += Character.toLowerCase(c);
+                }
+                else if (Character.isLowerCase(c)) {
+                    res += Character.toUpperCase(c);
+                }
+                else {
+                    res += c;
+                }
+            }
+            return new Data.ToPhi(res);
         }));
     }
 
