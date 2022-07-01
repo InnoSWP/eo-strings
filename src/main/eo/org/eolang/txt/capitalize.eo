@@ -18,11 +18,20 @@
 # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SOFTWARE. 
 
 +package org.eolang.txt
++alias org.eolang.txt.is-lowercase
++alias org.eolang.txt.swap-case
++alias org.eolang.txt.concatenate
 +home https://github.com/objectionary/eo-strings
 +version 0.0.0
 +rt jvm org.eolang:eo-strings:0.0.0
 
-[s] > capitalize /string
+[s] > capitalize
+  concatenate > @
+    if.
+      is-lowercase (s.slice 0 1)
+      swap-case (s.slice 0 1)
+      s.slice 0 1
+    s.slice 1 (s.length.minus 1)
