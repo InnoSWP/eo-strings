@@ -36,7 +36,7 @@ public class EOswap_case extends PhDefault {
     private static final String swapCase(String s) {
         String res = "";
         for (int i = 0; i < s.length(); i++) {
-            Character c = s.charAt(i);
+            final char c = s.charAt(i);
             if (Character.isUpperCase(c)) {
                 res += Character.toLowerCase(c);
             }
