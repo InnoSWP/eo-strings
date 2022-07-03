@@ -1,29 +1,27 @@
-# EO strings
+# eo-strings
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/InnoSWP/eo-strings/blob/main/LICENSE.txt)
-[![GitHub Super-Linter](https://github.com/InnoSWP/eo-strings/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-## The standard library for strings
-The functions for the EO language are chosen on the basis of the fact that the function is present in the Python, C++ and Java libraries.
-## List of functions
-[**Here**](https://github.com/InnoSWP/eo-strings/blob/main/List.md) you can find full list of functions with short description and similar fubctions in Java, Python, Ruby and C++. At the list below you can see already implemented functions in library:
-
-- ![EO](https://github.com/InnoSWP/eo-strings/blob/main/readme-assets/eo.svg)`compare`  
-Similar functions in other languages:  
-  - Java: `compareTo`      
-  - C++: `strcmp`    
-  - Ruby: `<=>, casecmp`    
-
-  Compares two strings
-  
-- ![EO](https://github.com/InnoSWP/eo-strings/blob/main/readme-assets/eo.svg)`concatenate`  
-Similar functions in other languages:  
-  - Java: `concat`    
-  - Python: `+= operator`    
-  - C++: `+= operator`    
-  - Ruby: `concat`    
-
-  Concatenates two strings
-
+[![Qulice](https://github.com/InnoSWP/eo-strings/actions/workflows/qulice.yml/badge.svg)](https://github.com/InnoSWP/eo-strings/actions/workflows/qulice.yml)
+[![Unit tests](https://github.com/InnoSWP/eo-strings/actions/workflows/mvn-test.yml/badge.svg)](https://github.com/InnoSWP/eo-strings/actions/workflows/mvn-test.yml)  
+This is a collection of objects for string operations for [EO](https://www.eolang.org)
+## How to use
+Import function from the library with `+alias org.eolang.txt.function` and use the imported function in the code.
+## Feature list
+The library implements a list of functions:
+- `capitalize string`  
+  Converts the first character of `string` to upper case.
+- `compare a b`  
+  Compares `a` and `b` strings and returns `1` if `a` is greater than `b`, `0` if they are equal, `-1` otherwise
+- `concatenate a b`  
+  Concatenates `a` and `b` and returns the resulting string
+- `is-alphabetic string`  
+  Returns `true` if all of the the characters in `string` are alphabetic (Analog of `Character.isAlphabetic` in Java)
+- `is-lowercase string`  
+  Returns `true` if all of the the characters in `string` are in lower case (Analog of `Character.isAlphabetic` in Java)
+- `swap-case string`  
+  Replaces all the lower case characters in `string` with upper case counterparts, and vice versa
+## How to install
+The library is designed to be integrated in the base EO, and will be automatically downloaded during project compilation.
 ## How to Contribute
 
 Fork repository, make changes, send us a pull request.
