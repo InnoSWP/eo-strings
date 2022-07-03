@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 egor-zavrahnov
+# Copyright (c) 2022 timolai-andrievich
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,21 @@
 # SOFTWARE.
 
 +package org.eolang.txt
-+home https://github.com/objectionary/eo-strings
-+version 0.0.0
-+rt jvm org.eolang:eo-strings:0.0.0
++alias org.eolang.hamcrest.assert-that
++alias org.eolang.txt.swap-case
++junit
 
-# Compares two strings and returns 1 if a is greater than b, 0 if they are equal, -1 otherwise.
-[a b] > compare
-  if. > @
-    (a.eq b)
-    0
-    if.
-      (a.as-bytes.as-int).lt (b.as-bytes.as-int)
-      -1
-      1
+[] > swap-case-test
+  assert-that > @
+    swap-case "lowercase"
+    $.equal-to "LOWERCASE"
+
+[] > swap-case-test-second
+  assert-that > @
+    swap-case "lowercase and d1g1ts"
+    $.equal-to "LOWERCASE AND D1G1TS"
+
+[] > swap-case-test-third
+  assert-that > @
+    swap-case "lowercase and UPPERCASE"
+    $.equal-to "LOWERCASE AND uppercase"

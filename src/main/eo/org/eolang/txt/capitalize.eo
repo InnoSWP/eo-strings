@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 egor-zavrahnov
+# Copyright (c) 2022 timolai-andrievich
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,18 @@
 # SOFTWARE.
 
 +package org.eolang.txt
++alias org.eolang.txt.is-lowercase
++alias org.eolang.txt.swap-case
++alias org.eolang.txt.concatenate
 +home https://github.com/objectionary/eo-strings
 +version 0.0.0
 +rt jvm org.eolang:eo-strings:0.0.0
 
-# Compares two strings and returns 1 if a is greater than b, 0 if they are equal, -1 otherwise.
-[a b] > compare
-  if. > @
-    (a.eq b)
-    0
+# Converts the first character of the string to upper case.
+[s] > capitalize
+  concatenate > @
     if.
-      (a.as-bytes.as-int).lt (b.as-bytes.as-int)
-      -1
-      1
+      is-lowercase (s.slice 0 1)
+      swap-case (s.slice 0 1)
+      s.slice 0 1
+    s.slice 1 (s.length.minus 1)

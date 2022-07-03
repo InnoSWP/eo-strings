@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 egor-zavrahnov
+# Copyright (c) 2022 timolai-andrievich
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -25,12 +25,5 @@
 +version 0.0.0
 +rt jvm org.eolang:eo-strings:0.0.0
 
-# Compares two strings and returns 1 if a is greater than b, 0 if they are equal, -1 otherwise.
-[a b] > compare
-  if. > @
-    (a.eq b)
-    0
-    if.
-      (a.as-bytes.as-int).lt (b.as-bytes.as-int)
-      -1
-      1
+# Returns true if all of the the characters in the string are in lower case (Analog of Character.isAlphabetic in java)
+[s] > is-alphabetic /bool

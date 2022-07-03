@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 egor-zavrahnov
+# Copyright (c) 2022 timolai-andrievich
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,16 +21,27 @@
 # SOFTWARE.
 
 +package org.eolang.txt
-+home https://github.com/objectionary/eo-strings
-+version 0.0.0
-+rt jvm org.eolang:eo-strings:0.0.0
++alias org.eolang.hamcrest.assert-that
++alias org.eolang.txt.is-alphabetic
++junit
 
-# Compares two strings and returns 1 if a is greater than b, 0 if they are equal, -1 otherwise.
-[a b] > compare
-  if. > @
-    (a.eq b)
-    0
-    if.
-      (a.as-bytes.as-int).lt (b.as-bytes.as-int)
-      -1
-      1
+[] > is-alphabetic-test
+  assert-that > @
+    is-alphabetic "Letters"
+    $.equal-to TRUE
+
+[] > is-alphabetic-test-second
+  assert-that > @
+    is-alphabetic "LettersAndD1g1ts"
+    $.equal-to FALSE
+
+[] > is-alphabetic-test-third
+  assert-that > @
+    is-alphabetic "ЯussianLetters"
+    $.equal-to TRUE
+
+[] > is-alphabetic-test-fourth
+  assert-that > @
+    is-alphabetic "Letters and spaces"
+    $.equal-to FALSE
+

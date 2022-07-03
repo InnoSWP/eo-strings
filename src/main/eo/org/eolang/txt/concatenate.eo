@@ -25,5 +25,6 @@
 +version 0.0.0
 +rt jvm org.eolang:eo-strings:0.0.0
 
+# Concatenates a and b and returns the resulting string
 [a b] > concatenate
   ((a.as-bytes).concat (b.as-bytes)).as-string > @
