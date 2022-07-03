@@ -33,9 +33,14 @@
 [] > is-lowercase-test-second
   assert-that > @
     is-lowercase "lowercase and d1g1ts"
-    $.equal-to TRUE
+    $.equal-to FALSE
 
 [] > is-lowercase-test-third
   assert-that > @
     is-lowercase "lowercase and UPPERCASE"
+    $.equal-to FALSE
+
+[] > is-lowercase-test-fourth
+  assert-that > @
+    is-lowercase "lowercase and spaces"
     $.equal-to FALSE

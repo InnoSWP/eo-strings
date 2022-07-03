@@ -25,4 +25,5 @@
 +version 0.0.0
 +rt jvm org.eolang:eo-strings:0.0.0
 
+# Returns true if all of the the characters in the string are in lower case (Analog of Character.isLowerCase in java)
 [s] > is-lowercase /bool

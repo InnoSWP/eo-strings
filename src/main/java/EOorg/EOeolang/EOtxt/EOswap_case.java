@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2022 Timolai Andrievich
+ * Copyright (c) 2022 timolai-andrievich
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
+// @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOtxt;
 
 import org.eolang.AtComposite;
@@ -31,24 +31,32 @@ import org.eolang.Param;
 import org.eolang.PhDefault;
 import org.eolang.Phi;
 
+/**
+ * Swap-case.
+ *
+ * @since 0.0.0
+ * @checkstyle TypeNameCheck (100 lines)
+ */
 public class EOswap_case extends PhDefault {
-
+    /**
+     * Ctor.
+     * @param sigma The \sigma
+     * @checkstyle BracketsStructureCheck (200 lines)
+     */
     public EOswap_case(final Phi sigma) {
         super(sigma);
         this.add("s", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            final String s = new Param(rho, "s").strong(String.class);
+            final String str = new Param(rho, "s").strong(String.class);
             String res = "";
-            for (int i = 0; i < s.length(); i++) {
-                final char c = s.charAt(i);
-                if (Character.isUpperCase(c)) {
-                    res += Character.toLowerCase(c);
-                }
-                else if (Character.isLowerCase(c)) {
-                    res += Character.toUpperCase(c);
-                }
-                else {
-                    res += c;
+            for (int idx = 0; idx < str.length(); idx += 1) {
+                final char chr = str.charAt(idx);
+                if (Character.isUpperCase(chr)) {
+                    res += Character.toLowerCase(chr);
+                } else if (Character.isLowerCase(chr)) {
+                    res += Character.toUpperCase(chr);
+                } else {
+                    res += chr;
                 }
             }
             return new Data.ToPhi(res);

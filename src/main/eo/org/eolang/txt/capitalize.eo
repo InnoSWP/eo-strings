@@ -18,7 +18,7 @@
 # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE. 
+# SOFTWARE.
 
 +package org.eolang.txt
 +alias org.eolang.txt.is-lowercase
@@ -28,6 +28,7 @@
 +version 0.0.0
 +rt jvm org.eolang:eo-strings:0.0.0
 
+# Converts the first character of the string to upper case.
 [s] > capitalize
   concatenate > @
     if.
