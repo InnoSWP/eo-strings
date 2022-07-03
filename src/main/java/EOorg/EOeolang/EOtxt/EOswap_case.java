@@ -48,18 +48,18 @@ public class EOswap_case extends PhDefault {
         this.add("s", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
             final String str = new Param(rho, "s").strong(String.class);
-            String res = "";
+            final StringBuilder res = new StringBuilder();
             for (int idx = 0; idx < str.length(); idx += 1) {
                 final char chr = str.charAt(idx);
                 if (Character.isUpperCase(chr)) {
-                    res += Character.toLowerCase(chr);
+                    res.append(Character.toLowerCase(chr));
                 } else if (Character.isLowerCase(chr)) {
-                    res += Character.toUpperCase(chr);
+                    res.append(Character.toUpperCase(chr));
                 } else {
-                    res += chr;
+                    res.append(chr);
                 }
             }
-            return new Data.ToPhi(res);
+            return new Data.ToPhi(res.toString());
         }));
     }
 
